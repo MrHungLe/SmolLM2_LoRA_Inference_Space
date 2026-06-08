@@ -1,0 +1,7 @@
+transformers
+peft
+torch --index-url https://download.pytorch.org/whl/cpu
+gradio
+sentencepiece
+accelerate
+datasets
