@@ -1,61 +1,61 @@
 # SmolLM2-135M LoRA Inference App 🚀
 
-Ứng dụng chạy thử nghiệm mô hình ngôn ngữ lớn **SmolLM2-135M** đã được tinh chỉnh bằng kỹ thuật **LoRA (Low-Rank Adaptation)**. Giao diện được xây dựng bằng **Gradio** và đóng gói bằng **Docker**.
+An application to test and run inference for the **SmolLM2-135M** large language model fine-tuned using the **LoRA (Low-Rank Adaptation)** technique. The user interface is built using **Gradio** and packaged with **Docker**.
 
-## 📌 Các tính năng chính
-- Xử lý suy luận (Inference) thời gian thực trên CPU với tùy chọn `max_new_tokens` và `temperature`.
-- Tự động hiển thị các ví dụ mẫu lấy trực tiếp từ tập dữ liệu tinh chỉnh (`CTU-ai-lab/my-custom-dataset`).
-- Đóng gói hoàn chỉnh bằng Docker giúp dễ dàng triển khai đa nền tảng (Local, Hugging Face Spaces, v.v.).
-- Đã được tối ưu hóa tải trước Model (`pre-download`) trong quá trình build Docker giúp ứng dụng khởi động tức thì.
+## 📌 Key Features
+- Real-time inference on CPU with configurable parameters (`max_new_tokens` and `temperature`).
+- Automatic fetching of suggestion examples directly from your fine-tuned dataset (`CTU-ai-lab/my-custom-dataset`).
+- Fully containerized using Docker for seamless cross-platform deployment (Local, Hugging Face Spaces, etc.).
+- Optimized startup speed by pre-downloading the model and adapter during the Docker build process, enabling instant launch on Hugging Face Spaces.
 
 ---
 
-## 📂 Cấu trúc thư mục
+## 📂 Project Structure
 ```text
 step9_intern_guideline/
-├── config.py          # Cấu hình Model Base, LoRA Adapter và Dataset
-├── app.py             # File chạy ứng dụng giao diện Gradio
-├── dockerfile         # Cấu hình đóng gói Container
-├── requirements.txt   # Các thư viện Python cần thiết
-├── .gitignore         # Bỏ qua các file rác khi push lên Git
-├── .dockerignore      # Bỏ qua các file không cần thiết khi build Docker
-└── README.md          # Hướng dẫn này
+├── config.py          # Model Base, LoRA Adapter, and Dataset configurations
+├── app.py             # Gradio web interface and inference logic
+├── dockerfile         # Docker container configuration (optimized with caching)
+├── requirements.txt   # Required Python packages
+├── .gitignore         # Prevents committing unnecessary local files to Git
+├── .dockerignore      # Excludes local files from the Docker build context
+└── README.md          # Project documentation (this file)
 ```
 
 ---
 
-## 🛠️ Hướng dẫn chạy cục bộ (Local)
+## 🛠️ Local Setup Instructions
 
-### Cách 1: Chạy trực tiếp bằng Python
-1. Tạo môi trường ảo và kích hoạt:
+### Option 1: Running directly with Python
+1. Create and activate a virtual environment:
    ```bash
-   python -m venv .venv
-   source .venv/bin/activate  # Trên macOS/Linux
-   # hoặc: .venv\Scripts\activate  # Trên Windows
+   python3 -m venv .venv
+   source .venv/bin/activate  # On macOS/Linux
+   # or: .venv\Scripts\activate  # On Windows
    ```
-2. Cài đặt các thư viện phụ thuộc:
+2. Install the required Python packages:
    ```bash
    pip install -r requirements.txt
    ```
-3. Chạy ứng dụng:
+3. Start the application:
    ```bash
    python app.py
    ```
-4. Truy cập giao diện tại: `http://localhost:7860`
+4. Access the web interface at: `http://localhost:7860`
 
-### Cách 2: Chạy với Docker
-1. Build Docker image:
+### Option 2: Running with Docker
+1. Build the Docker image:
    ```bash
    docker build -t smollm2-app .
    ```
-2. Chạy container:
+2. Start the container:
    ```bash
    docker run -p 7860:7860 smollm2-app
    ```
-3. Truy cập giao diện tại: `http://localhost:7860`
+3. Access the web interface at: `http://localhost:7860`
 
 ---
 
-## 🌐 Triển khai (Deployment)
+## 🌐 Deployment
 
-Dự án này đã sẵn sàng để triển khai lên **Hugging Face Spaces** hoặc **GitHub**. Vui lòng tham khảo tài liệu hướng dẫn chi tiết được cung cấp để push code lên các nền tảng này.
+This project is ready to be deployed to **Hugging Face Spaces** or pushed to **GitHub**. Refer to the deployment guide provided to push and share your results with your mentor.
