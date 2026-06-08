@@ -1,3 +1,12 @@
+---
+title: Smollm2 Inference Docker
+emoji: 🚀
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+---
+
 # SmolLM2-135M LoRA Inference App 🚀
 
 An application to test and run inference for the **SmolLM2-135M** large language model fine-tuned using the **LoRA (Low-Rank Adaptation)** technique. The user interface is built using **Gradio** and packaged with **Docker**.
